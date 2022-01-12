@@ -1,15 +1,22 @@
 #include <iostream>
-#include "Adder/adder.h"
 #include <GLFW/glfw3.h>
 #include <OLASConfig.h>
 #include <glog/logging.h>
+
+#ifdef USER_ADDER
+    #include "Adder/adder.h"
+#endif
 
 /* float add(float a, float b); */
 
 int main(int argc, char* argv[]) {
     std::cout << "hello world!\n";
 
-    std::cout << add(78.8111, 17.2) << "\n";
+#ifdef USER_ADDER
+    std::cout << "using Adder lib: " << add(78.8111, 17.2) << "\n";
+#else
+    std::cout << "NOT USING Adder lib: " << 78.8111 + 17.2 << "\n";
+#endif
 
     std::cout << argv[0] << " Version " << OLAS_VERISON_MAJOR << "." << OLAS_VERISON_MINOR << "\n";
 

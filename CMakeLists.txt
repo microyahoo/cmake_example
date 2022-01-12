@@ -1,19 +1,28 @@
 cmake_minimum_required(VERSION 3.20.4)
 
-project(OLAS VERSION 1.0)
+project (OLAS VERSION 1.0)
 
+option(USER_ADDER "A simple library for adding 2 floats" ON)
+
+# https://github.com/google/glog
 find_package (glog 0.6.0 REQUIRED)
 
-configure_file(OLASConfig.h.in OLASConfig.h)
+# https://cmake.org/cmake/help/latest/command/configure_file.html
+configure_file (OLASConfig.h.in OLASConfig.h)
 
-add_executable(${PROJECT_NAME} main.cpp)
-# add_executable (${PROJECT_NAME} main.cpp)
+add_executable (${PROJECT_NAME} main.cpp)
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
+target_include_directories (${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
 
-add_subdirectory (Adder)
+if (USER_ADDER)
+    add_subdirectory (Adder)
+    list(APPEND EXTRA_LINKS "adder")
+    list(APPEND EXTRA_INCLUDE_DIRS "Adder")
+    list(APPEND EXTRA_LIB_DIRS "Adder")
+endif()
 
-find_package(Git QUIET)
+
+find_package (Git QUIET)
 if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
 # Update submodules as needed
     option(GIT_SUBMODULE "Check submodules during build" ON)
@@ -32,19 +41,21 @@ add_subdirectory (external/glfw)
 
 
 
-# target_include_directories()
-target_include_directories(${PROJECT_NAME} PUBLIC 
-    "Adder"
+target_include_directories (${PROJECT_NAME} PUBLIC 
+    # "Adder"
+    ${EXTRA_INCLUDE_DIRS}
     "external/glfw/include"
 )
 
 # target_link_directories(${PROJECT_NAME} PRIVATE
 #     "Adder"
+#     ${EXTRA_LIB_DIRS}
 #     "external/glfw/src"
 # )
 
 target_link_libraries (${PROJECT_NAME} PUBLIC 
-    "adder"
+    # "adder"
+    ${EXTRA_LINKS}
     "glfw"
     glog::glog
 )
