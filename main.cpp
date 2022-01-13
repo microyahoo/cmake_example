@@ -2,6 +2,7 @@
 #include "Adder/adder.h"
 #include <GLFW/glfw3.h>
 #include <OLASConfig.h>
+#include <glog/logging.h>
 
 /* float add(float a, float b); */
 
@@ -11,6 +12,12 @@ int main(int argc, char* argv[]) {
     std::cout << add(78.8111, 17.2) << "\n";
 
     std::cout << argv[0] << " Version " << OLAS_VERISON_MAJOR << "." << OLAS_VERISON_MINOR << "\n";
+
+    // Initialize Google’s logging library.
+    google::InitGoogleLogging(argv[0]);
+
+    // ...
+    LOG(ERROR) << "Found errors";
 
     GLFWwindow* window;
     int width, height;

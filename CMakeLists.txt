@@ -2,9 +2,12 @@ cmake_minimum_required(VERSION 3.20.4)
 
 project(OLAS VERSION 1.0)
 
+find_package (glog 0.6.0 REQUIRED)
+
 configure_file(OLASConfig.h.in OLASConfig.h)
 
 add_executable(${PROJECT_NAME} main.cpp)
+# add_executable (${PROJECT_NAME} main.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_BINARY_DIR})
 
@@ -27,6 +30,8 @@ endif()
 
 add_subdirectory (external/glfw)
 
+
+
 # target_include_directories()
 target_include_directories(${PROJECT_NAME} PUBLIC 
     "Adder"
@@ -41,4 +46,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 target_link_libraries (${PROJECT_NAME} PUBLIC 
     "adder"
     "glfw"
+    glog::glog
 )
+
+# target_link_libraries (${PROJECT_NAME} glog::glog)
