@@ -15,6 +15,8 @@
     * [CMake Tutorial EP 4 | Versioning Source Code](https://www.youtube.com/watch?v=K3bx7NYSXVk)
     * [CMake Tutorial EP 5 | Making Libs Optional](https://www.youtube.com/watch?v=BCgnr6Frmmo)
     * [CMake Tutorial EP 6 | Installing Your Software!](https://www.youtube.com/watch?v=x7l31sbQDGk)
+    * [CMake Tutorial EP 8 | find_library(...) (part 1/2 of find lib)](https://www.youtube.com/watch?v=fG4B8qEP-Xc)
+    * [CMake Tutorial EP 9 | find_package modules and config options (2/2 of find libs)](https://www.youtube.com/watch?v=wAh2n_UWgyw)
 - [Cmake 中文实战教程](https://github.com/BrightXiaoHan/CMakeTutorial)
 - [chaneyzorn/CMake-tutorial](https://github.com/chaneyzorn/CMake-tutorial)
 - [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
