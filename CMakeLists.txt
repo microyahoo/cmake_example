@@ -61,3 +61,6 @@ target_link_libraries (${PROJECT_NAME} PUBLIC
 )
 
 # target_link_libraries (${PROJECT_NAME} glog::glog)
+
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+install(FILES "${PROJECT_BINARY_DIR}/OLASConfig.h"  DESTINATION include)

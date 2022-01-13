@@ -4,6 +4,7 @@
 ./configure.sh
 ./build.sh
 ./run.sh
+./install.sh
 ```
 
 ## References
@@ -13,6 +14,7 @@
     * [CMake Tutorial EP 3 | Git Submodules (adding glfw windowing library example)](https://www.youtube.com/watch?v=ED-WUk440qc)
     * [CMake Tutorial EP 4 | Versioning Source Code](https://www.youtube.com/watch?v=K3bx7NYSXVk)
     * [CMake Tutorial EP 5 | Making Libs Optional](https://www.youtube.com/watch?v=BCgnr6Frmmo)
+    * [CMake Tutorial EP 6 | Installing Your Software!](https://www.youtube.com/watch?v=x7l31sbQDGk)
 - [Cmake 中文实战教程](https://github.com/BrightXiaoHan/CMakeTutorial)
 - [chaneyzorn/CMake-tutorial](https://github.com/chaneyzorn/CMake-tutorial)
 - [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
